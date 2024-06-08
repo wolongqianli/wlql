@@ -1,0 +1,13 @@
+nmap -F 快速扫描
+nmap -sn 禁止扫描
+nmap -sT 经历TCP三次握手
+nmap -sS TCP SYN扫描
+nmap -sU UDP端口扫描
+nmap -sV 判断对于端口上运行的服务器版本
+nmap -p 指定的端口扫描
+nmap -O 扫描操作系统（分析当前服务器上运行的系统类型以及系统版本号）
+nmap -sP 命令ping扫描
+nmap -VV 表示对扫描出来的结果详细输出
+nmp -sO 扫描确定目标机支持的一些协议类型
+nmap -sF：利用FIN扫描探测防火墙的状态
+nmap -traceroute 对某IP地址进行路由跟踪
