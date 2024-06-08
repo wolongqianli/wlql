@@ -1,0 +1,44 @@
+docker的创建
+
+要建立Docker容器，你首先需要有一个Dockerfile或者通过docker run命令直接从Docker Hub或其他镜像仓库拉取一个现有的镜像来运行。
+
+如果你有一个Dockerfile，并且想要从它构建一个镜像并运行一个容器，你可以按照以下步骤操作：
+
+编写Dockerfile (如果你还没有的话)
+例如，一个简单的Dockerfile可能看起来像这样：
+
+Dockerfile
+# 使用官方的Node.js作为父镜像  
+FROM node:14  
+  
+# 设置工作目录  
+WORKDIR /app  
+  
+# 将当前目录的内容复制到容器的/app内  
+COPY . /app  
+  
+# 安装项目依赖  
+RUN npm install  
+  
+# 容器启动时执行的命令  
+CMD [ "npm", "start" ]
+构建镜像
+使用docker build命令从你的Dockerfile构建一个新的Docker镜像。
+
+bash
+docker build -t your-image-name .
+这里的your-image-name是你想要给你的镜像命名的名字，.表示Dockerfile所在的当前目录。
+3. 运行容器
+
+使用docker run命令从你的镜像运行一个新的Docker容器。
+
+bash
+docker run -p 4000:3000 your-image-name
+这里-p 4000:3000是将容器的3000端口映射到主机的4000端口，这样你就可以通过访问主机的4000端口来访问容器内的应用了。
+
+但是，如果你只是想要直接从一个现有的Docker镜像运行一个容器，你可以直接使用docker run命令，例如：
+
+bash
+docker run -p 4000:80 nginx
+这个命令会从Docker Hub拉取nginx镜像（如果本地没有的话），并运行一个容器，将容器的80端口映射到主机的4000端口。
+
