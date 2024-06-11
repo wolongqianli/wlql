@@ -42,7 +42,11 @@ history = model.fit(train_images, train_labels, epochs=5, batch_size=128)
 
 ## #绘制准确率曲线
 plt.plot(history.history['accuracy'], label='accuracy')
+
 plt.xlabel('Epoch')
+
 plt.ylabel('Accuracy')
+
 plt.legend(loc='lower right')
+
 plt.show()
